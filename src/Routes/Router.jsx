@@ -5,7 +5,8 @@ import {
 import Home from "../Pages/Home";
 import Root from "../Pages/Root/Root";
 import Error from "../Pages/Error/Error";
-import Login from "../assets/Auth/Login";
+import Login from "../Auth/Login";
+import Register from "../Auth/Register";
 
 
     const routes = createBrowserRouter([
@@ -21,11 +22,11 @@ import Login from "../assets/Auth/Login";
                {
                 path: '/login',
                 element:<Login></Login>
-               }
-            //    {
-            //     path: '/register',
-            //     element: <Register></Register>
-            //    },
+               },
+               {
+                path: '/register',
+                element: <Register></Register>
+               },
             //    {
             //     path: '/contact',
             //     element: <Contact></Contact>

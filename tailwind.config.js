@@ -11,10 +11,10 @@ export default {
       },
     },
   },
-  daisyui: {
-    themes: [
-      "emerald"
-    ],
-  },
+  // daisyui: {
+  //   themes: [
+  //     "emerald"
+  //   ],
+  // },
   plugins: [require("daisyui")],
 }
