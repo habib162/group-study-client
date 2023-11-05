@@ -3,8 +3,10 @@ import '../../assets/style.css';
 import { useEffect, useState } from 'react';
 import moon from "../../assets/icons/moon.png";
 import sun from '../../assets/icons/sun.svg';
+import UseAuth from '../../hooks/useAuth';
+import Swal from 'sweetalert2';
 const Navbar = () => {
-
+    const { logout, currentUser, loading } = UseAuth();
     const [theme, setTheme] = useState(
         localStorage.getItem("theme") ? localStorage.getItem("theme") : "emerald"
     );
@@ -21,6 +23,22 @@ const Navbar = () => {
         const localTheme = localStorage.getItem("theme");
         document.querySelector("html").setAttribute("data-theme", localTheme);
     }, [theme]);
+    
+    const handleLogOut = () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You wont be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Logout!',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                logout();
+            }
+        })
+    }
     const navItems = <>
         {/* <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li> */}
@@ -46,7 +64,27 @@ const Navbar = () => {
                 </div>
             </NavLink>
         </li>
-        <li>
+        {
+            currentUser?.email ? <>
+            <li>
+            <NavLink
+                onClick={handleLogOut}
+                className={({ isActive }) =>
+                  isActive ? "text-black font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
+                }
+            >
+                <div className="relative inline-block menu-text">
+                    <div className="relative inline-block">L</div>
+                    <div className="relative inline-block">o</div>
+                    <div className="relative inline-block">g</div>
+                    <div className="relative inline-block">o</div>
+                    <div className="relative inline-block">u</div>
+                    <div className="relative inline-block">t</div>
+                </div>
+            </NavLink>
+        </li>
+            </> :
+            <li>
             <NavLink
                 to="/login"
                 className={({ isActive }) =>
@@ -62,6 +100,8 @@ const Navbar = () => {
                 </div>
             </NavLink>
         </li>
+        }
+       
 
     </>
 
