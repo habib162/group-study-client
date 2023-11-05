@@ -5,6 +5,7 @@ import {
 import Home from "../Pages/Home";
 import Root from "../Pages/Root/Root";
 import Error from "../Pages/Error/Error";
+import Login from "../assets/Auth/Login";
 
 
     const routes = createBrowserRouter([
@@ -17,10 +18,10 @@ import Error from "../Pages/Error/Error";
                 path: '/',
                 element: <Home></Home>
                },
-            //    {
-            //     path: '/login',
-            //     element: <Login></Login>
-            //    },
+               {
+                path: '/login',
+                element:<Login></Login>
+               }
             //    {
             //     path: '/register',
             //     element: <Register></Register>

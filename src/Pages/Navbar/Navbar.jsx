@@ -1,43 +1,103 @@
-const Navbar = () => (
-    <div className="navbar bg-base-100">
-        <div className="navbar-start">
-            <div className="dropdown">
-                <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </label>
-                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a>Item 1</a></li>
-                    <li>
-                        <a>Parent</a>
-                        <ul className="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a>Item 3</a></li>
+import { Link, NavLink } from 'react-router-dom';
+import '../../assets/style.css';
+import { useEffect, useState } from 'react';
+import moon from "../../assets/icons/moon.png";
+import sun from '../../assets/icons/sun.svg';
+const Navbar = () => {
+
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") ? localStorage.getItem("theme") : "emerald"
+    );
+
+    const handleToggle = (e) => {
+        if (e.target.checked) {
+            setTheme("dark");
+        } else {
+            setTheme("emerald");
+        }
+    };
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+        const localTheme = localStorage.getItem("theme");
+        document.querySelector("html").setAttribute("data-theme", localTheme);
+    }, [theme]);
+    const navItems = <>
+        {/* <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li> */}
+        {/* {
+        user?.email ? <>
+        <li><Link to="/bookings">My Bookings</Link></li>
+        <li onClick={handleLogOut}><a>Logout</a></li>
+        </> 
+         : <li><Link to="/login">Login</Link></li>
+    } */}
+        <li>
+            <NavLink
+                to="/"
+                className={({ isActive }) =>
+                isActive ? "text-[#3DD8A7] font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
+                }
+            >
+                <div className="relative inline-block menu-text">
+                    <div className="relative inline-block">H</div>
+                    <div className="relative inline-block">o</div>
+                    <div className="relative inline-block">m</div>
+                    <div className="relative inline-block">e</div>
+                </div>
+            </NavLink>
+        </li>
+        <li>
+            <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? "text-[#3DD8A7] font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
+                }
+            >
+                <div className="relative inline-block menu-text">
+                    <div className="relative inline-block">L</div>
+                    <div className="relative inline-block">o</div>
+                    <div className="relative inline-block">g</div>
+                    <div className="relative inline-block">i</div>
+                    <div className="relative inline-block">n</div>
+                </div>
+            </NavLink>
+        </li>
+
+    </>
+
+    return (
+        <div className="navbar bg-base-100 h-20">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        {navItems}
+                    </ul>
+                </div>
+                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+            </div>
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal px-1">
+                    {navItems}
                 </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+            <div className="navbar-end">
+                <button className="btn btn-square btn-ghost">
+                    <label className="swap swap-rotate w-12 h-12">
+                        <input
+                            type="checkbox"
+                            onChange={handleToggle}
+                            checked={theme === "emerald" ? false : true}
+                        />
+                        <img src={sun} alt="emerald" className="w-8 h-8 swap-on" />
+                        <img src={moon} alt="dark" className="w-6 h-6 swap-off" />
+                    </label>
+                </button>
+            </div>
         </div>
-        <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
-                <li><a>Item 1</a></li>
-                <li tabIndex={0}>
-                    <details>
-                        <summary>Parent</summary>
-                        <ul className="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                        </ul>
-                    </details>
-                </li>
-                <li><a>Item 3</a></li>
-            </ul>
-        </div>
-        <div className="navbar-end">
-            <a className="btn">Button</a>
-        </div>
-    </div>
-);
+    );
+}
 
 export default Navbar;
