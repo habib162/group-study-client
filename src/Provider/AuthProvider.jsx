@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../Firebase/firebase.config';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 
@@ -38,6 +39,32 @@ const AuthProvider = ({ children }) => {
             unSubscribe()
         }
     }, [])
+
+    // useEffect(() => {
+    //     const unSubscribe = onAuthStateChanged(auth, (user) => {
+    //         if (user) {
+    //             const loggeduser = { email: user.email };
+    //             const userEmail = user?.email || currentUser?.email;
+    //             console.log('habib3 343',userEmail);
+    //             setCurrentUser(user);
+    //             setLoading(false);
+
+    //             axios.post('http://localhost:5000/jwt',loggeduser, {withCredentials: true})
+    //             .then((res) => {
+    //                 console.log('token response', res.data);
+    //             });
+    //         }
+    //         // else{
+    //         //     setCurrentUser(null); // set user to null if there is no authenticated user
+    //         //     setLoading(false);
+    //         //     axios.post('http://localhost:5000/logout', loggeduser, {
+    //         //         withCredentials: true,
+    //         //     }).then((res) => {
+    //         //         console.log(res.data);
+    //         //     });
+    //         // }
+            
+    //     });
 
     // Logout
 

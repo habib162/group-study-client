@@ -5,10 +5,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import axios from 'axios';
 import { toast } from "react-toastify";
+import UseAuth from "../../hooks/useAuth";
 
 const AddAssignment = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
-
+    const {currentUser} = UseAuth();
+    
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
@@ -21,23 +23,16 @@ const AddAssignment = () => {
         const mark = form.mark.value;
         const difficultLevel = form.difficultLevel.value;
         const description = form.description.value;
-        const date = form.date.value;
-
-        const newAssignment = { title, imageUrl, mark, difficultLevel, description, date };
-        
-        // fetch('https://b8a10-brandshop-server-side-habib162.vercel.app/product', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newProduct)
-        // })
-        axios.post('http://localhost:5000/assignment',newAssignment)
+        const date = selectedDate;
+        const user_mail = currentUser.email;
+        const newAssignment = { title, imageUrl, mark, difficultLevel, description, date, user_mail};
+        console.log(newAssignment);
+        axios.post("http://localhost:5000/assignment",newAssignment)
             .then(function (response) {
                 toast.success("Assignment inserted successfully")
               })
               .catch(function (error) {
-                toast(error)
+                console.log(error);
               })
     }
     return (

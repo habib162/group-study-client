@@ -5,6 +5,7 @@ import loginImg from '../assets/Lottie/Login.json';
 import { useLottie } from "lottie-react";
 import { toast } from "react-toastify";
 import UseAuth from "../hooks/useAuth";
+import axios from "axios";
 const Login = () => {
     const options = {
         animationData: loginImg,
@@ -22,8 +23,22 @@ const Login = () => {
         if (email && password) {
             signIn(email, password)
                 .then(result => {
-                    navigate(location?.state ? location.state : "/");
-                    toast("Logged in successfully");
+                    // axios.post('http://localhost:5000/jwt',{email},{withCredentials:true})
+                    // .then((data) => console.log(data))
+                    // navigate(location?.state ? location.state : "/");
+                    // toast("Logged in successfully");
+
+                    fetch('http://localhost:5000/jwt',{
+                        method: "POST",
+                        credentials: "include",
+                        headers: {
+                            "content-type": "application/json",
+                        },
+                        body: JSON.stringify({email: email})
+                    })
+                    .then((res)=> res.json).then(data => console.log(data))
+                       navigate(location?.state ? location.state : "/");
+                        toast("Logged in successfully");
                 })
                 .catch(error => {
                     toast.error("Email or Password invalid")
