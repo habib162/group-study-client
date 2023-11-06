@@ -11,13 +11,10 @@ function SocialLogin() {
     const navigate = useNavigate();
     const handleSocialLogin = (e) =>{
         e.preventDefault();
-        googleLogin()
-
-        .then(res => {
+        googleLogin().then(res => {
             navigate (location?.state ? location.state : "/");
             toast("Sign in successfully")
         })
-        // .catch((err) => toast.error(err))
         .catch((err) => console.log(err))
     }
     return (

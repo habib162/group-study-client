@@ -7,6 +7,8 @@ import Root from "../Pages/Root/Root";
 import Error from "../Pages/Error/Error";
 import Login from "../Auth/Login";
 import Register from "../Auth/Register";
+import AddAssignment from "../Pages/Assignment/AddAssignment";
+import PrivateRoute from "../Auth/PrivateRoute";
 
 
     const routes = createBrowserRouter([
@@ -27,10 +29,14 @@ import Register from "../Auth/Register";
                 path: '/register',
                 element: <Register></Register>
                },
-            //    {
-            //     path: '/contact',
-            //     element: <Contact></Contact>
-            //    }
+               {
+                path: '/all-assignment',
+                element: <Register></Register>
+               },
+               {
+                path: '/add-assignment',
+                element: <PrivateRoute><AddAssignment></AddAssignment></PrivateRoute>
+               }
             ]
         }
     ]);

@@ -23,7 +23,7 @@ const Navbar = () => {
         const localTheme = localStorage.getItem("theme");
         document.querySelector("html").setAttribute("data-theme", localTheme);
     }, [theme]);
-    
+
     const handleLogOut = () => {
         Swal.fire({
             title: 'Are you sure?',
@@ -53,7 +53,7 @@ const Navbar = () => {
             <NavLink
                 to="/"
                 className={({ isActive }) =>
-                isActive ? "text-[#3DD8A7] font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
+                    isActive ? "text-[#3DD8A7] font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
                 }
             >
                 <div className="relative inline-block menu-text">
@@ -64,44 +64,95 @@ const Navbar = () => {
                 </div>
             </NavLink>
         </li>
-        {
-            currentUser?.email ? <>
-            <li>
+        <li>
             <NavLink
-                onClick={handleLogOut}
+                to="/all-assignment"
                 className={({ isActive }) =>
-                  isActive ? "text-black font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
+                    isActive ? "text-[#3DD8A7] font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
                 }
             >
                 <div className="relative inline-block menu-text">
-                    <div className="relative inline-block">L</div>
-                    <div className="relative inline-block">o</div>
+                    <div className="relative inline-block">A</div>
+                    <div className="relative inline-block">l</div>
+                    <div className="relative inline-block">l</div>
+                </div>
+                <div className="relative inline-block menu-text">
+                    <div className="relative inline-block">A</div>
+                    <div className="relative inline-block">s</div>
+                    <div className="relative inline-block">s</div>
+                    <div className="relative inline-block">i</div>
                     <div className="relative inline-block">g</div>
-                    <div className="relative inline-block">o</div>
-                    <div className="relative inline-block">u</div>
+                    <div className="relative inline-block">n</div>
+                    <div className="relative inline-block">m</div>
+                    <div className="relative inline-block">e</div>
+                    <div className="relative inline-block">n</div>
                     <div className="relative inline-block">t</div>
                 </div>
             </NavLink>
         </li>
-            </> :
-            <li>
-            <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive ? "text-[#3DD8A7] font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
-                }
-            >
-                <div className="relative inline-block menu-text">
-                    <div className="relative inline-block">L</div>
-                    <div className="relative inline-block">o</div>
-                    <div className="relative inline-block">g</div>
-                    <div className="relative inline-block">i</div>
-                    <div className="relative inline-block">n</div>
+        {
+            currentUser?.email ? <>
+                <li>
+                    <NavLink to="/add-assignment"
+                        className={({ isActive }) =>
+                            isActive ? "text-[#3DD8A7] font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
+                        }
+                    >
+                         <div className="relative inline-block menu-text">
+                    <div className="relative inline-block">A</div>
+                    <div className="relative inline-block">d</div>
+                    <div className="relative inline-block">d</div>
                 </div>
-            </NavLink>
-        </li>
+                <div className="relative inline-block menu-text">
+                    <div className="relative inline-block">A</div>
+                    <div className="relative inline-block">s</div>
+                    <div className="relative inline-block">s</div>
+                    <div className="relative inline-block">i</div>
+                    <div className="relative inline-block">g</div>
+                    <div className="relative inline-block">n</div>
+                    <div className="relative inline-block">m</div>
+                    <div className="relative inline-block">e</div>
+                    <div className="relative inline-block">n</div>
+                    <div className="relative inline-block">t</div>
+                </div>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        onClick={handleLogOut}
+                        className={({ isActive }) =>
+                            isActive ? "text-black font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
+                        }
+                    >
+                        <div className="relative inline-block menu-text">
+                            <div className="relative inline-block">L</div>
+                            <div className="relative inline-block">o</div>
+                            <div className="relative inline-block">g</div>
+                            <div className="relative inline-block">o</div>
+                            <div className="relative inline-block">u</div>
+                            <div className="relative inline-block">t</div>
+                        </div>
+                    </NavLink>
+                </li>
+            </> :
+                <li>
+                    <NavLink
+                        to="/login"
+                        className={({ isActive }) =>
+                            isActive ? "text-[#3DD8A7] font-semibold text_hover_animaiton nav-link font-poppins text-lg" : " font-semibold text_hover_animaiton nav-link font-poppins text-lg text-black"
+                        }
+                    >
+                        <div className="relative inline-block menu-text">
+                            <div className="relative inline-block">L</div>
+                            <div className="relative inline-block">o</div>
+                            <div className="relative inline-block">g</div>
+                            <div className="relative inline-block">i</div>
+                            <div className="relative inline-block">n</div>
+                        </div>
+                    </NavLink>
+                </li>
         }
-       
+
 
     </>
 

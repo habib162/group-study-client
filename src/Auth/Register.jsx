@@ -37,24 +37,24 @@ const Register = () => {
             if (email) {
                 registerUser(email, password, name, photoUrl)
 
-                    .then(result => { console.log(result);
-                        // const createdAt = result.user?.metadata?.creationTime;
-                        // const newUser = { email, password, name, createdAt }
-                        // fetch('https://b8a10-brandshop-server-side-habib162.vercel.app/user', {
-                        //     method: 'POST',
-                        //     headers: {
-                        //         'content-type': 'application/json'
-                        //     },
-                        //     body: JSON.stringify(newUser)
-                        // })
-                        //     .then(res => res.json())
-                        //     .then(data => {
-                        //         if (data.insertedId) {
-                        //             toast.success("user registered successfully")
-                        //         }
+                    .then(result => { 
+                        const createdAt = result.user?.metadata?.creationTime;
+                        const newUser = { email, password, name,photoUrl, createdAt }
+                        fetch('http://localhost:5000/user', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(newUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    toast.success("user registered successfully")
+                                }
 
-                        //     })
-                        // navigate(location?.state ? location.state : "/");
+                            })
+                        navigate(location?.state ? location.state : "/");
 
                     })
                     .catch(error => { toast.error(error) });
