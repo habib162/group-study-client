@@ -10,8 +10,8 @@ const Banner = () => {
     const { View } = useLottie(options);
                    
     return (
-        <div className="flex min-h-screen max-w-7xl mx-auto font-poppins" >
-            <div className="  mt-40">
+        <div className="md:flex min-h-[500px] max-w-7xl mx-auto font-poppins" >
+            <div className=" mt-40">
                 <h1 className="text-5xl font-bold mr-10 mb-4">
                     Collaborate, Illuminate,
                 </h1>

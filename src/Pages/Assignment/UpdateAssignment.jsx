@@ -12,7 +12,7 @@ import axios from "axios";
 const UpdateAssignment = () => {
     const assignments = useLoaderData();
     const { _id, title, imageUrl, mark, description, difficultLevel, date, user_mail } = assignments;
-    console.log(date);
+
     const [level, setLevel] = useState(difficultLevel);
     const [selectedDate, setSelectedDate] = useState(new Date(date));
     const { currentUser } = UseAuth();
