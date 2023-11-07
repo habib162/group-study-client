@@ -101,7 +101,7 @@ const AddAssignment = () => {
                             type="submit"
                             className="w-full bg-emerald-500 text-white font-bold py-2 px-4 rounded-md hover:bg-em  erald-700 focus:outline-none focus:shadow-outline"
                         >
-                            Add Product
+                            Add Assignment
                         </button>
                     </form>
                 </div>
