@@ -13,6 +13,7 @@ import AllAssignment from "../Pages/Assignment/AllAssignment";
 import ManageAssignment from "../Pages/Assignment/ManageAssignment";
 import UpdateAssignment from "../Pages/Assignment/UpdateAssignment";
 import ShowAssignment from "../Pages/Assignment/ShowAssignment";
+import FAQs from "../Pages/FAQs/FAQs";
 
 
     const routes = createBrowserRouter([
@@ -32,6 +33,11 @@ import ShowAssignment from "../Pages/Assignment/ShowAssignment";
                {
                 path: '/register',
                 element: <Register></Register>
+               },
+               {
+                path: '/faqs',
+                element: <FAQs></FAQs>,
+                loader : () => fetch('http://localhost:5000/faqs')
                },
                {
                 path: '/all-assignment',
