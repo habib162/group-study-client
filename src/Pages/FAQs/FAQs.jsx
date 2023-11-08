@@ -15,7 +15,7 @@ const FAQs = () => {
     const itemsPerPage = 4; 
 
     useEffect(() => {
-        fetch('http://localhost:5000/faqs')
+        fetch('https://b8a11-server-side-habib162.vercel.app/faqs')
             .then(res => res.json())
             .then(data => {
                 setLoadedFaqs(data);

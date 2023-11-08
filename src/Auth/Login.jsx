@@ -29,12 +29,12 @@ const Login = () => {
         if (email && password) {
             signIn(email, password)
                 .then(result => {
-                    // axios.post('http://localhost:5000/jwt',{email},{withCredentials:true})
+                    // axios.post('https://b8a11-server-side-habib162.vercel.app/jwt',{email},{withCredentials:true})
                     // .then((data) => console.log(data))
                     // navigate(location?.state ? location.state : "/");
                     // toast("Logged in successfully");
 
-                    fetch('http://localhost:5000/jwt',{
+                    fetch('https://b8a11-server-side-habib162.vercel.app/jwt',{
                         method: "POST",
                         credentials: "include",
                         headers: {

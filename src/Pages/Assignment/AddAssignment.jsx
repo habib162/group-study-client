@@ -27,7 +27,7 @@ const AddAssignment = () => {
         const user_mail = currentUser.email;
         const newAssignment = { title, imageUrl, mark, difficultLevel, description, date, user_mail};
         console.log(newAssignment);
-        axios.post("http://localhost:5000/assignment",newAssignment)
+        axios.post("https://b8a11-server-side-habib162.vercel.app/assignment",newAssignment)
             .then(function (response) {
                 toast.success("Assignment inserted successfully")
               })

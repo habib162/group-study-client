@@ -15,7 +15,7 @@ const ShowAssignment = () => {
         const status = 'pending';
         const newSubmit = {pdflink, note, email, status, assignment_id: _id};
         
-        fetch("http://localhost:5000/take-assignment", {
+        fetch("https://b8a11-server-side-habib162.vercel.app/take-assignment", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

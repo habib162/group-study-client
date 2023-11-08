@@ -7,7 +7,7 @@ const AllAssignment = () => {
     const [loadedAssignment, setLoadedAssignment] = useState([]);
     const [allAssignments, setAllAssignments] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/assignment')
+        fetch('https://b8a11-server-side-habib162.vercel.app/assignment')
             .then(res => res.json())
             .then(data => {
                 setLoadedAssignment(data)

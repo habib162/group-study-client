@@ -7,7 +7,7 @@ const SubmittedAssignment = () => {
     const [assignments, setAssignments] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/assignment')
+        fetch('https://b8a11-server-side-habib162.vercel.app/assignment')
             .then(res => res.json())
             .then(data => {
                 setAssignments(data);
@@ -27,7 +27,7 @@ const SubmittedAssignment = () => {
         const mark = e.target.marks.value;
         const newMark = { mark, status: 'Completed' }
         e.target.reset();
-        fetch(`http://localhost:5000/take-assignment/${id}`, {
+        fetch(`https://b8a11-server-side-habib162.vercel.app/take-assignment/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

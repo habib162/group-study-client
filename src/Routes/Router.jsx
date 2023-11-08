@@ -39,7 +39,7 @@ import SubmittedAssignment from "../Pages/Assignment/SubmittedAssignment";
                {
                 path: '/faqs',
                 element: <FAQs></FAQs>,
-                loader : () => fetch('http://localhost:5000/faqs')
+                loader : () => fetch('https://b8a11-server-side-habib162.vercel.app/faqs')
                },
                {
                 path: '/all-assignment',
@@ -52,27 +52,27 @@ import SubmittedAssignment from "../Pages/Assignment/SubmittedAssignment";
                {
                 path: '/assignment-list',
                 element: <PrivateRoute><ManageAssignment></ManageAssignment></PrivateRoute>,
-                loader : () => fetch('http://localhost:5000/assignment')
+                loader : () => fetch('https://b8a11-server-side-habib162.vercel.app/assignment')
                },
                {
                 path: '/update-assignment/:id',
                 element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-                loader : ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
+                loader : ({params}) => fetch(`https://b8a11-server-side-habib162.vercel.app/assignment/${params.id}`)
                },
                {
                 path: '/show-assignment/:id',
                 element: <PrivateRoute><ShowAssignment></ShowAssignment></PrivateRoute>,
-                loader : ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
+                loader : ({params}) => fetch(`https://b8a11-server-side-habib162.vercel.app/assignment/${params.id}`)
                },
                {
                 path: '/my-submission',
                 element: <PrivateRoute><MySubmission></MySubmission></PrivateRoute>,
-                loader : () => fetch("http://localhost:5000/take-assignment")
+                loader : () => fetch("https://b8a11-server-side-habib162.vercel.app/take-assignment")
                },
                {
                 path: '/all-submitted-assignment',
                 element: <PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
-                loader : () => fetch("http://localhost:5000/take-assignment")
+                loader : () => fetch("https://b8a11-server-side-habib162.vercel.app/take-assignment")
                },
             ]
         }

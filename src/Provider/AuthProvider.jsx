@@ -49,7 +49,7 @@ const AuthProvider = ({ children }) => {
     //             setCurrentUser(user);
     //             setLoading(false);
 
-    //             axios.post('http://localhost:5000/jwt',loggeduser, {withCredentials: true})
+    //             axios.post('https://b8a11-server-side-habib162.vercel.app/jwt',loggeduser, {withCredentials: true})
     //             .then((res) => {
     //                 console.log('token response', res.data);
     //             });
@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
     //         // else{
     //         //     setCurrentUser(null); // set user to null if there is no authenticated user
     //         //     setLoading(false);
-    //         //     axios.post('http://localhost:5000/logout', loggeduser, {
+    //         //     axios.post('https://b8a11-server-side-habib162.vercel.app/logout', loggeduser, {
     //         //         withCredentials: true,
     //         //     }).then((res) => {
     //         //         console.log(res.data);

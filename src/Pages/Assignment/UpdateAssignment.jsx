@@ -39,7 +39,7 @@ const UpdateAssignment = () => {
         const date = selectedDate;
         const user_mail = currentUser.email;
         const newAssignment = { title, imageUrl, mark, difficultLevel, description, date, user_mail };
-        fetch(`http://localhost:5000/assignment/${_id}`, {
+        fetch(`https://b8a11-server-side-habib162.vercel.app/assignment/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
