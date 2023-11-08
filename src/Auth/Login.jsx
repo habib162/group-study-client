@@ -6,13 +6,19 @@ import { useLottie } from "lottie-react";
 import { toast } from "react-toastify";
 import UseAuth from "../hooks/useAuth";
 import axios from "axios";
+import { useEffect } from "react";
+import Aos from "aos";
 const Login = () => {
     const options = {
         animationData: loginImg,
         loop: true
     };
     const { View } = useLottie(options);
-
+    useEffect(() => {
+        Aos.init({
+            duration: 3000,
+        });
+    });
     const { signIn } = UseAuth();
     const location = useLocation();
     const navigate = useNavigate();
@@ -50,10 +56,10 @@ const Login = () => {
         <div>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row">
-                    <div className="text-center lg:text-left w-1/2 mr-12 mx-auto my-10">
+                    <div className="text-center lg:text-left w-1/2 mr-12 mx-auto my-10" data-aos="fade-right">
                         {View}
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-md bg-base-100 rounded-md">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-md bg-base-100 rounded-md" data-aos="fade-left">
                         <SocialLogin></SocialLogin>
                         <form className="card-body" onSubmit={handleSignIn}>
                             <div className="form-control">

@@ -9,7 +9,7 @@ const SideBar = () => {
                         <li><Link to='/add-assignment'><button className='w-full text-left p-3 text-black/80 cursor-pointer hover:bg-emerald-200 rounded-[10px] pl-5 font-medium'>Add Assignment</button></Link></li>
 
                         <li><Link to='/assignment-list'><button className='w-full text-left p-3 text-black/80 cursor-pointer hover:bg-emerald-200 rounded-[10px] pl-5 font-medium'>Manage Assignment</button></Link> </li>
-                        <li><Link to='/assignment-list'><button className='w-full text-left p-3 text-black/80 cursor-pointer hover:bg-emerald-200 rounded-[10px] pl-5 font-medium'>All Submitted Assignment</button></Link> </li>
+                        <li><Link to='/all-submitted-assignment'><button className='w-full text-left p-3 text-black/80 cursor-pointer hover:bg-emerald-200 rounded-[10px] pl-5 font-medium'>All Submitted Assignment</button></Link> </li>
                     </ul>
             
             </ul>
