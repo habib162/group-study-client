@@ -13,7 +13,7 @@ const ShowAssignment = () => {
         const note = e.target.note.value;
         const email = currentUser.email;
         const status = 'pending';
-        const newSubmit = {pdflink, note, email, status};
+        const newSubmit = {pdflink, note, email, status, assignment_id: _id};
         
         fetch("http://localhost:5000/take-assignment", {
             method: 'POST',

@@ -15,7 +15,11 @@ const AllAssignment = () => {
                 setLoading(false)
             })
     }, [])
-  
+    useEffect(() => {
+        Aos.init({
+            duration: 3000,
+        });
+    });
     const handleFilter = (e) => {
         const selectedLevel = e.target.value;
         setLoading(true);
@@ -36,13 +40,13 @@ const AllAssignment = () => {
     return (
         <div>
             <div className="py-5">
-                <h1 className="text-4xl font-bold py-6 text-center bg-gradient-to-r text-transparent bg-clip-text from-indigo-500 from-10% via-emerald-500 via-30% to-emerald-500 to-90% ">All Assignment</h1>
+                <h1 className="text-4xl font-bold text-center py-6 bg-gradient-to-r text-transparent bg-clip-text from-indigo-500 from-10% via-emerald-500 via-30% to-emerald-500 to-90% " data-aos="fade-right">All Assignment</h1>
                 {
                     loading && <div className="flex justify-center py-20">
                         <span className="loading loading-spinner text-success"></span>
                     </div>
                 }
-                <div className="form-control my-5 mx-auto w-1/2 flex">
+                <div className="form-control my-5 mx-auto w-1/2 flex" data-aos="fade-left">
                     <div><span className="label-text text-black font-bold">Filter by</span></div>
                     <select
                         name="difficultLevel"

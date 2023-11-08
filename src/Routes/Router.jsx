@@ -14,6 +14,7 @@ import ManageAssignment from "../Pages/Assignment/ManageAssignment";
 import UpdateAssignment from "../Pages/Assignment/UpdateAssignment";
 import ShowAssignment from "../Pages/Assignment/ShowAssignment";
 import FAQs from "../Pages/FAQs/FAQs";
+import MySubmission from "../Pages/Assignment/MySubmission";
 
 
     const routes = createBrowserRouter([
@@ -61,7 +62,12 @@ import FAQs from "../Pages/FAQs/FAQs";
                 path: '/show-assignment/:id',
                 element: <PrivateRoute><ShowAssignment></ShowAssignment></PrivateRoute>,
                 loader : ({params}) => fetch(`http://localhost:5000/assignment/${params.id}`)
-               }
+               },
+               {
+                path: '/my-submission',
+                element: <PrivateRoute><MySubmission></MySubmission></PrivateRoute>,
+                loader : () => fetch("http://localhost:5000/take-assignment")
+               },
             ]
         }
     ]);
